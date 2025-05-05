@@ -185,6 +185,31 @@ public function prosesSeleksi()
     {
         return view('user.daftar');
     }
+
+
+    public function update(Request $request)
+{
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        'password' => 'nullable|string|min:8|confirmed',
+    ]);
+
+    $user = auth()->user();
+    $user->name = $request->name;
+
+    if ($request->hasFile('photo')) {
+        // Handle photo upload
+    }
+
+    if ($request->password) {
+        $user->password = Hash::make($request->password);
+    }
+
+    $user->save();
+
+    return back()->with('success', 'Profil berhasil diperbarui!');
+}
 }
 
     

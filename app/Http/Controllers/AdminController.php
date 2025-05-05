@@ -125,16 +125,7 @@ public function finalSeleksi()
 
 
 
-        public function index()
-        {
-            // Mengambil data pelamar dari database dengan pagination
-            $applicants = Applicant::paginate(5);  // Sesuaikan jumlahnya sesuai kebutuhan
-    
-            // Mengirimkan data ke view
-            return view('daftarpelamar', compact('applicants'));
-    
-        }
-
+      
         public function lolosformulir()
         {
             return view('admin.lolosformulir'); 
@@ -145,43 +136,15 @@ public function finalSeleksi()
             return view('admin.tolakformulir'); 
         }
 
-        
 
-        public function showprofileadmin()
-    {
-        $user = Auth::user();  // Ambil data pengguna yang sedang login
-        return view('admin.profileadmin')->with('user', $user);
-    }
-
-  
-    public function updateprofileadmin(Request $request)
-    {
-        $user = Auth::user();
+       
         
-        // Jika user tidak terautentikasi
-        if (!$user) {
-            return redirect()->route('login')->with('error', 'Silakan login terlebih dahulu');
-        }
-    
-        // Validasi input
-        $validatedData = $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users,email,' . $user->id,
-            'password' => 'nullable|string|min:8|confirmed',
-        ]);
-    
-        // Update data user
-        $user->name = $validatedData['name'];
-        $user->email = $validatedData['email'];
-        
-        if (!empty($validatedData['password'])) {
-            $user->password = Hash::make($validatedData['password']);
+        public function showprofile() {
+            $user = Auth::user();
+            return view('admin.profileadmin', compact('user'));
         }
         
-        $user->save();
-    
-        return redirect()->route('profileadmin')->with('success', 'Profil berhasil diperbarui!');
-    }
+        
        }
        
     

@@ -17,7 +17,7 @@
             Internship. Schedule akan kami kirimkan secepatnya, mohon ditunggu ya kak.
         </p>
         <p>
-            Sekali lagi kami ucapkan Selamat kepada <strong>"Nasywa Alifiyah Nur Maulida"</strong>.
+            Sekali lagi kami ucapkan Selamat kepada <strong>"Devano danendra"</strong>.
             Persiapkan dirimu untuk tantangan ke depan, Semangat !!!
         </p>
         <p>Best Regards,</p>

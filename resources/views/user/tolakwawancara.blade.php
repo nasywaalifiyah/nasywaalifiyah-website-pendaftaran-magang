@@ -23,8 +23,8 @@
 <body class="d-flex justify-content-center align-items-center vh-100 bg-light">
 
     <div class="border border-danger rounded p-5 text-center bg-white shadow" style="max-width: 600px; width: 90%;">
-        <h4 class="fw-bold text-dark"> ANDA MENOLAK UNTUK MENGIKUTI TAHAP WAWANCARA !</h4>
-        <img src="{{ asset('images/silang.svg') }}" alt="Menunggu" class="my-3" width="150">
+        <h4 class="fw-bold text-dark"> Anda sudah menolak untuk melanjutkan ketahap wawanacara!</h4>
+        <img src="{{ asset('images/tolak.svg') }}" width="200"> <!-- Ukuran gambar diperkecil -->
 
         <!-- Tombol dengan warna #1A0859 dan margin atas -->
         <div style="margin-top: 20px;">

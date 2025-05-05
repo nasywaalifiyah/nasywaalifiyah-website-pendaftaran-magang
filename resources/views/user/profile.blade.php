@@ -21,7 +21,7 @@
             <!-- Profile Picture Upload (Placed at the top and center) -->
             <div class="mb-3 text-center">
                 <label for="profile-picture" class="profile-picture-label">
-                    <img src="{{ asset('sizuka.svg') }}" id="profile-preview" class="profile-img" alt="Profile Photo">
+                    <img src="{{ asset('images/sizuka.svg') }}" id="profile-preview" class="profile-img" alt="Profile Photo">
                     <span class="change-photo-text">Click to change photo</span>
                 </label>
                 <input type="file" id="profile-picture" name="profile-picture" accept="image/*" style="display:none;" onchange="previewImage(event)">

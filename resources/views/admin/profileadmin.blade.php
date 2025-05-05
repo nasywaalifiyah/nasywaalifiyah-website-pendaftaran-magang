@@ -1,8 +1,11 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
-@section('title', 'Profileadmin')
+@section('title', 'profileadmin')
+
 
 @section('content')
+<h1 class="text-2xl font-semibold mb-4">User</h1>
+    <a href="#" class="bg-green-500 text-white px-4 py-2 rounded">profileadmin</a>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -25,19 +28,17 @@
                             @else
                                 <img src="{{ asset('img/profile.png') }}" class="img-thumbnail rounded mx-auto d-block">
                             @endif
-                            
                         </div>
                         <div class="col-md-8">
                             <form method="POST" action="{{ route('profile.update', $user->id) }}" enctype="multipart/form-data">
                                 @method('PATCH')
                                 @csrf
 
+                                <!-- Nama -->
                                 <div class="row mb-3">
                                     <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
-
                                     <div class="col-md-6">
-                                        <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $user->name }}" required autocomplete="name">
-
+                                        <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name', $user->name) }}" required autocomplete="name">
                                         @error('name')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -46,12 +47,11 @@
                                     </div>
                                 </div>
 
+                                <!-- Email -->
                                 <div class="row mb-3">
                                     <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
-
                                     <div class="col-md-6">
                                         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email', $user->email) }}" required autocomplete="email">
-
                                         @error('email')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -60,12 +60,11 @@
                                     </div>
                                 </div>
 
+                                <!-- Old Password -->
                                 <div class="row mb-3">
                                     <label for="old_password" class="col-md-4 col-form-label text-md-end">{{ __('Old Password') }}</label>
-
                                     <div class="col-md-6">
                                         <input id="old_password" type="password" class="form-control @error('old_password') is-invalid @enderror" name="old_password" autocomplete="old-password">
-
                                         @error('old_password')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -74,12 +73,11 @@
                                     </div>
                                 </div>
 
+                                <!-- New Password -->
                                 <div class="row mb-3">
                                     <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('New Password') }}</label>
-
                                     <div class="col-md-6">
                                         <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" autocomplete="new-password">
-
                                         @error('password')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -88,31 +86,31 @@
                                     </div>
                                 </div>
 
+                                <!-- Confirm Password -->
                                 <div class="row mb-3">
                                     <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
-
                                     <div class="col-md-6">
                                         <input id="password-confirm" type="password" class="form-control" name="password_confirmation" autocomplete="new-password">
                                     </div>
                                 </div>
 
+                                <!-- Profile Photo -->
                                 <div class="row mb-3">
-                                    <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Change Profile Photo') }}</label>
-
+                                    <label for="photo" class="col-md-4 col-form-label text-md-end">{{ __('Change Profile Photo') }}</label>
                                     <div class="col-md-6">
                                         <input id="photo" type="file" class="form-control" name="photo">
                                     </div>
                                 </div>
 
+                                <!-- Submit Button -->
                                 <div class="row mb-0">
                                     <div class="col-md-6 offset-md-4">
                                         <button type="submit" class="btn btn-primary">
-                                            {{ __('Update Profile') }}
+                                            {{ __('Update profile') }}
                                         </button>
                                     </div>
                                 </div>
                             </form>
-
                         </div>
                     </div>
                 </div>
@@ -120,3 +118,4 @@
         </div>
     </div>
 </div>
+@endsection
